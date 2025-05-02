@@ -1,0 +1,6 @@
+.navbarContainer{
+    width: 12em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
