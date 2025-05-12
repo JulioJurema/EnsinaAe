@@ -1,16 +1,16 @@
-.appContainer{
-    background-color: #9e7171;
+  .appContainer {
     display: flex;
     flex-direction: row;
     height: 100vh;
     width: 100vw;
-}
-.navigationArea{
+    overflow: hidden;
+  }
+  
+  .navigationArea {
     height: 100%;
-    width: auto;
-    background-color: #a70c0c;
-}
-
-.contentArea{
-    width: 100%;
-}
+  }
+  
+  .contentArea {
+    height: 100%;
+  }
+  

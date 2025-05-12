@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Dashboard from './Pages/Dashboard';
-import Simulado from './Pages/Simulado/Index';
+import Simulado from './Pages/Simulado';
 import React from 'react';
 
 

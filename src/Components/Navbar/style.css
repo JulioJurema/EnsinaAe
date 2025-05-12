@@ -1,6 +1,26 @@
 .navbarContainer{
-    width: 12em;
-    padding: 1em;
+    height: 100%;
+    width: 15em;
+    padding: 1.5em;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 7px 29px -4px rgba(0, 0, 0, 0.25);
+    margin-right: 2em;
+}
+
+.navArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+}
+
+.navButtons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+img{
+    margin: 1em 0 8em 0;
+    padding: 1em;
 }
