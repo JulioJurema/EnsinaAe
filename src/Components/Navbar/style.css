@@ -20,6 +20,34 @@
     flex-direction: column;
     margin-top: 2em;
 }
+.navDiv1{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+    padding: 2em 0 1.7em 0;
+    border-top: solid 1px #c0c0c0;
+    border-bottom: solid 1px #c0c0c0;
+}
+
+.navItens{
+    padding: 0.5em 2em;
+    margin-bottom: 0.3em;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--texto-preto-primario);
+}
+.navItens:hover{
+    background-color: var(--verde-select);
+    transition: .3s;
+}
+
+.navActive{
+    color: var(--texto-preto-primario);
+    background-color: var(--verde-primario);
+    transition: .3s;
+    font-size: 600;
+}
+
 img{
     margin: 1em 0 8em 0;
     padding: 1em;
