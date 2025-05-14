@@ -17,7 +17,8 @@ const App: React.FC= () => {
         <div className="contentArea">
             <Routes>
               <Route path='/' element={<Dashboard />} />
-              <Route path='/simulado' element={<Simulado />} />
+              <Route path='/simulado' element={<Simulado tipo='Simulado'/>} />
+              <Route path='/livre' element={<Simulado tipo='Modo Livre'/>} />
             </Routes>
         </div>
       </BrowserRouter>

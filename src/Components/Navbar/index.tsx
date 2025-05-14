@@ -3,12 +3,8 @@ import './style.css';
 import Logo from "../../assets/Logo.png"
 import { NavLink } from "react-router-dom";
 
-interface navProps{
-    isActive: boolean;
-}
 
-
-const Navbar: React.FC<navProps> = () =>{
+const Navbar: React.FC = () =>{
     return(
         <nav className="navbarContainer">
             <img src={Logo} alt="Logo do site" />
@@ -19,9 +15,12 @@ const Navbar: React.FC<navProps> = () =>{
                         <NavLink to='/simulado' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Simulado</NavLink>
                         <NavLink to='/livre' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Livre</NavLink>
                     </div>
-                    
+                    <div className="navDiv2">
+                    <NavLink to='/ajustes' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Ajustes</NavLink>
+                    <NavLink to='/sobre' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Sobre</NavLink>
+                    </div>
                 </div>
-                <div>
+                <div className="logout">
                     <p>sair</p>
                 </div>
             </div>
