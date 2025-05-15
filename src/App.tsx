@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar';
 import Dashboard from './Pages/Dashboard';
 import Simulado from './Pages/Simulado';
 import React from 'react';
+import Sobre from './Pages/Sobre';
 
 
 const App: React.FC= () => {
@@ -19,6 +20,7 @@ const App: React.FC= () => {
               <Route path='/' element={<Dashboard />} />
               <Route path='/simulado' element={<Simulado tipo='Simulado'/>} />
               <Route path='/livre' element={<Simulado tipo='Modo Livre'/>} />
+              <Route path='/sobre' element={<Sobre />} />
             </Routes>
         </div>
       </BrowserRouter>

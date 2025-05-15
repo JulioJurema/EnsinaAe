@@ -1,0 +1,35 @@
+.headerContainer{
+    height: 8em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #cd5e5e;
+    padding: 0 1em;
+}
+
+.clockArea{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+p{
+    font-weight: 400;
+    font-size: 15px;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 40px;
+}
+
+span{
+    font-weight: 300;
+    font-size: 14px;
+}
+
+h2{
+    font-size: 24px;
+}
