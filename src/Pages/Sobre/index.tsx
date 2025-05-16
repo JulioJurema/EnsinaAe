@@ -4,7 +4,7 @@ import './style.css'
 const Sobre: React.FC = () =>{
     return(
         <section className="sobreContainer">
-            <Header titulo='Teste Cabeçalho' descricao='teste' cronometro={true}/>
+            <Header titulo='Sobre' descricao='' cronometro={false}/>
         </section>
     )
 }
