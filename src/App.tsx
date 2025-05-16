@@ -5,6 +5,7 @@ import Dashboard from './Pages/Dashboard';
 import Simulado from './Pages/Simulado';
 import React from 'react';
 import Sobre from './Pages/Sobre';
+import Ajustes from './Pages/Ajustes';
 
 
 const App: React.FC= () => {
@@ -18,9 +19,10 @@ const App: React.FC= () => {
         <div className="contentArea">
             <Routes>
               <Route path='/' element={<Dashboard />} />
-              <Route path='/simulado' element={<Simulado tipo='Simulado'/>} />
-              <Route path='/livre' element={<Simulado tipo='Modo Livre'/>} />
+              <Route path='/simulado' element={<Simulado simulado={true}/>} />
+              <Route path='/livre' element={<Simulado simulado={false}/>} />
               <Route path='/sobre' element={<Sobre />} />
+              <Route path='/ajustes' element={<Ajustes />} />
             </Routes>
         </div>
       </BrowserRouter>
