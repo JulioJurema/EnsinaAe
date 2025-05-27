@@ -10,8 +10,10 @@ Esse projeto está em fase de desenvolvimento e o intuito dele é auxiliar os ve
 
 ## Pendências
 
-🟢 NavBar
-🟢 Cabeçalho
-🔴 Pagina de Login
-🔴 projeto Firebase
-🔴 adicionar dados ao banco
+🟢 NavBar <br>
+🟢 Cabeçalho <br>
+🟢 Configurar Lotas <br>
+🔴 Card de perguntas <br>
+🔴 Pagina de Login <br>
+🔴 projeto Firebase <br>
+🔴 adicionar dados ao banco <br>
