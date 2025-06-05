@@ -1,0 +1,33 @@
+.loginPageContainer{
+    height: 100vh;
+    width: 100vw;
+    background-color: #d3abab;
+}
+
+.loginPageHeader{
+    height: 8em;
+    width: 100vw;
+    display: flex;
+    padding: 2.7em;
+}
+
+img{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.loginPageBody{
+    height: auto;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginCard{
+    margin-top: 15vh;
+    height: 40vh;
+    width: 80vh;
+    background-color: #fff;
+}

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Dashboard from './Pages/Dashboard';
@@ -6,28 +6,39 @@ import Simulado from './Pages/Simulado';
 import React from 'react';
 import Sobre from './Pages/Sobre';
 import Ajustes from './Pages/Ajustes';
+import LoginPage from './Pages/LoginPage/LoginPage';
 
+const App: React.FC = () => {
+  const location = useLocation();
 
-const App: React.FC= () => {
+  // Verifica se está na página de login
+  const isLoginPage = location.pathname === '/login';
 
   return (
     <section className='appContainer'>
-      <BrowserRouter>
+      {!isLoginPage && (
         <div className="navigationArea">
           <Navbar />
         </div>
-        <div className="contentArea">
-            <Routes>
-              <Route path='/' element={<Dashboard />} />
-              <Route path='/simulado' element={<Simulado simulado={true}/>} />
-              <Route path='/livre' element={<Simulado simulado={false}/>} />
-              <Route path='/sobre' element={<Sobre />} />
-              <Route path='/ajustes' element={<Ajustes />} />
-            </Routes>
-        </div>
-      </BrowserRouter>
+      )}
+      <div className="contentArea">
+        <Routes>
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/simulado' element={<Simulado simulado={true} />} />
+          <Route path='/livre' element={<Simulado simulado={false} />} />
+          <Route path='/sobre' element={<Sobre />} />
+          <Route path='/ajustes' element={<Ajustes />} />
+          <Route path='/login' element={<LoginPage />} />
+        </Routes>
+      </div>
     </section>
-  )
+  );
 }
 
-export default App
+const AppWrapper: React.FC = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+export default AppWrapper;
