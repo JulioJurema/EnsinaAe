@@ -30,4 +30,21 @@ img{
     height: 40vh;
     width: 80vh;
     background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.loginInfo{
+    width: 50%;
+}
+
+.loginButtons{
+    width: 50%;
+    background: #a12c2c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
