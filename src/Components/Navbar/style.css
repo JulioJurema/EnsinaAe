@@ -1,4 +1,4 @@
-.navbarContainer{
+.navbarContainer {
     height: 100%;
     width: 15em;
     padding: 1.5em;
@@ -6,58 +6,134 @@
     flex-direction: column;
     box-shadow: 0px 7px 29px -4px rgba(0, 0, 0, 0.25);
     margin-right: 2em;
-}
+  }
 
-.navArea{
+  .navbarContainer img{
+    height: auto;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+  }
+  
+  .navArea {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 90%;
-}
-
-.navButtons{
+  }
+  
+  .navButtons {
     display: flex;
     flex-direction: column;
     margin-top: 2em;
-}
-.navDiv1{
+  }
+  
+  .navDiv1 {
     display: flex;
     flex-direction: column;
     margin: 0.5em 0;
     padding: 1.3em 0 1em 0;
     border-top: solid 1px #c0c0c0;
     border-bottom: solid 1px #c0c0c0;
-}
-.navDiv2{
+  }
+  
+  .navDiv2 {
     display: flex;
     flex-direction: column;
-}
-
-.logout{
+  }
+  
+  .logout {
     padding: 0.2em 0 0 0;
     border-top: solid 1px #c0c0c0;
-}
-
-.navItens{
+  }
+  
+  /* Estilo do botão de sair e popup */
+  .logoutArea {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .logoutBtn {
+    background-color: transparent;
+    border: none;
+    color: var(--texto-preto-primario);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5em;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .logoutPopup {
+    position: absolute;
+    bottom: 100%;          /* Posiciona acima do botão */
+    left: 0;               /* Alinha à esquerda do botão */
+    background-color: #ffffff;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    min-width: 160px;
+    margin-bottom: 0.5em;  /* Espaço entre botão e popup */
+  }
+  
+  
+  
+  
+  .logoutPopup p {
+    margin: 0 0 10px;
+    font-size: 0.95em;
+    color: #333;
+  }
+  
+  .popupButtons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .popupButtons button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .popupButtons button:first-child {
+    background-color: #ccc;
+    color: black;
+  }
+  
+  .popupButtons button:last-child {
+    background-color: #a12c2c;
+    color: white;
+  }
+  
+  .navItens {
     padding: 0.5em 2em;
     margin-bottom: 0.3em;
     border-radius: 5px;
     text-decoration: none;
     color: var(--texto-preto-primario);
-}
-.navItens:hover{
+  }
+  
+  .navItens:hover {
     background-color: var(--verde-select);
-    transition: .3s;
-}
-
-.navActive{
+    transition: 0.3s;
+  }
+  
+  .navActive {
     color: var(--texto-preto-primario);
     background-color: var(--verde-primario);
-    transition: .3s;
-    font-size: 600;
-}
-
-img{
+    transition: 0.3s;
+    font-weight: 600;
+  }
+  
+  img {
     margin: 1em 0 30% 0;
     padding: 1em;
-}
+  }
+  

@@ -1,15 +1,54 @@
-import './style.css'
-import Logo from '../../assets/Logo.png'
+import './style.css';
+import Logo from '../../assets/Logo.png';
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '../../../Firebase';
+import { auth, googleProvider, db } from '../../../Firebase';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      navigate('/');
+    }
+  }, [navigate]);
+
   const handleGoogleLogin = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+
+      const userData = {
+        nome: user.displayName,
+        email: user.email,
+        foto: user.photoURL,
+        uid: user.uid,
+      };
+
+      console.log('Usuário logado:', userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+
+      // Verifica se o usuário já está na coleção "Users"
+      if (user.uid) {
+        const userRef = doc(collection(db, 'Users'), user.uid);
+        const userSnap = await getDoc(userRef);
+      
+        if (!userSnap.exists()) {
+          await setDoc(userRef, {
+            nome: user.displayName,
+            email: user.email,
+            uid: user.uid,
+            criadoEm: new Date()
+          });
+          console.log('Usuário adicionado ao Firestore.');
+        } else {
+          console.log('Usuário já existe no Firestore.');
+        }
+      }
+
       navigate('/');
     } catch (error) {
       console.error('Erro no login com Google:', error);
@@ -33,6 +72,6 @@ const LoginPage: React.FC = () => {
       </div>
     </section>
   );
-}
+};
 
 export default LoginPage;
