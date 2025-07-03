@@ -15,5 +15,5 @@ Esse projeto está em fase de desenvolvimento e o intuito dele é auxiliar os ve
 🟢 Configurar Lotas <br>
 🔴 Card de perguntas <br>
 🔴 Pagina de Login <br>
-🔴 projeto Firebase <br>
+🟡 projeto Firebase <br>
 🔴 adicionar dados ao banco <br>

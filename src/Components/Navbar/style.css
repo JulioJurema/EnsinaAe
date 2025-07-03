@@ -56,19 +56,23 @@
     background-color: transparent;
     border: none;
     color: var(--texto-preto-primario);
-    font-weight: bold;
     cursor: pointer;
-    padding: 0.5em;
     text-align: left;
     width: 100%;
-    position: relative;
-    z-index: 1;
+    padding: 0.5em 2em;
+    margin-bottom: 0.3em;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .logoutBtn:hover {
+    background-color: var(--vermelho-select);
+    transition: 0.3s;
   }
   
   .logoutPopup {
     position: absolute;
-    bottom: 100%;          /* Posiciona acima do botão */
-    left: 0;               /* Alinha à esquerda do botão */
+    bottom: 100%;         
+    left: 0;            
     background-color: #ffffff;
     padding: 1em;
     border: 1px solid #ccc;
@@ -76,7 +80,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 2;
     min-width: 160px;
-    margin-bottom: 0.5em;  /* Espaço entre botão e popup */
+    margin-bottom: 0.5em;
   }
   
   
@@ -108,8 +112,13 @@
   }
   
   .popupButtons button:last-child {
-    background-color: #a12c2c;
+    background-color: var(--vermelho-select);
     color: white;
+  }
+  .popupButtons button:hover {
+    background-color: var(--vermelho-secundario);
+    color: white;
+    animation: 1s;
   }
   
   .navItens {

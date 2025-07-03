@@ -6,7 +6,7 @@ import Simulado from './Pages/Simulado';
 import React from 'react';
 import Sobre from './Pages/Sobre';
 import Ajustes from './Pages/Ajustes';
-import LoginPage from './Pages/LoginPage/LoginPage';
+import LoginPage from './Pages/LoginPage';
 
 const App: React.FC = () => {
   const location = useLocation();

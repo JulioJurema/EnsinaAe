@@ -57,6 +57,8 @@ const LoginPage: React.FC = () => {
 
   return (
     <section className='loginPageContainer'>
+      <div className="backgroundShapes"></div>
+
       <div className='loginPageHeader'>
         <img src={Logo} alt="Logo do site" />
       </div>
