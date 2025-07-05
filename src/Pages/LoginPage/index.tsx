@@ -1,19 +1,18 @@
 import './style.css';
 import Logo from '../../assets/Logo.png';
+import Illustration from '../../assets/Ilustracao.png'; // substitua por sua imagem
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider, db } from '../../../Firebase';
+import { auth, googleProvider } from '../../../Firebase';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
+import { FaGoogle, FaFacebookF, FaMicrosoft } from 'react-icons/fa';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
-    if (userData) {
-      navigate('/');
-    }
+    if (userData) navigate('/');
   }, [navigate]);
 
   const handleGoogleLogin = async () => {
@@ -28,27 +27,7 @@ const LoginPage: React.FC = () => {
         uid: user.uid,
       };
 
-      console.log('Usuário logado:', userData);
       localStorage.setItem('user', JSON.stringify(userData));
-
-      // Verifica se o usuário já está na coleção "Users"
-      if (user.uid) {
-        const userRef = doc(collection(db, 'Users'), user.uid);
-        const userSnap = await getDoc(userRef);
-      
-        if (!userSnap.exists()) {
-          await setDoc(userRef, {
-            nome: user.displayName,
-            email: user.email,
-            uid: user.uid,
-            criadoEm: new Date()
-          });
-          console.log('Usuário adicionado ao Firestore.');
-        } else {
-          console.log('Usuário já existe no Firestore.');
-        }
-      }
-
       navigate('/');
     } catch (error) {
       console.error('Erro no login com Google:', error);
@@ -56,19 +35,33 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <section className='loginPageContainer'>
-      <div className="backgroundShapes"></div>
+    <section className="loginPageContainer">
+      <header className="loginLogo">
+        <img src={Logo} alt="Logo" />
+      </header>
 
-      <div className='loginPageHeader'>
-        <img src={Logo} alt="Logo do site" />
-      </div>
-      <div className='loginPageBody'>
-        <div className='loginCard'>
-          <div className='loginInfo'>
-            <p>Entre na plataforma</p>
-          </div>
-          <div className='loginButtons'>
-            <button onClick={handleGoogleLogin}>Entrar com Google</button>
+      <div className="loginCard">
+        <div className="loginCardImage">
+          <img src={Illustration} alt="Ilustração" />
+        </div>
+
+        <div className="loginCardContent">
+          <h1>Bem-vindo!</h1>
+          <p>Acesse a plataforma com uma das contas abaixo:</p>
+
+          <div className="loginButtons">
+            <button className="google" onClick={handleGoogleLogin}>
+              <FaGoogle />
+              Google
+            </button>
+            <button className="microsoft" disabled>
+              <FaMicrosoft />
+              Microsoft
+            </button>
+            <button className="facebook" disabled>
+              <FaFacebookF />
+              Facebook
+            </button>
           </div>
         </div>
       </div>

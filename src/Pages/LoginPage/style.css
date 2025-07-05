@@ -1,61 +1,124 @@
-.loginPageContainer{
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--verde-select);
-}
-.backgroundShapes {
-    position: absolute;
-    top: -20%;
-    right: -20%;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle at right, #2e7d32 30%, transparent 70%);
-    z-index: 0;
-    border-radius: 50%;
+:root {
+    --verde-claro: #a5d6a7;
+    --verde-escuro: #2e7d32;
   }
-
-.loginPageHeader{
-    height: 8em;
-    width: 100vw;
-    display: flex;
-    padding: 2.7em;
-}
-
-img{
-    height: 100%;
+  
+  body, html {
     margin: 0;
     padding: 0;
-}
-
-.loginPageBody{
-    height: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+  }
+  
+  .loginPageContainer {
+    height: 100vh;
     width: 100vw;
+    background: linear-gradient(135deg, var(--verde-claro), var(--verde-escuro));
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.loginCard{
-    margin-top: 15vh;
-    height: 40vh;
-    width: 80vh;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
+    position: relative;
+  }
+  
+  .loginLogo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: 2;
+  }
+  
+  .loginLogo img {
+    height: 5em;
+  }
+  
+  
+  .loginCard {
     display: flex;
-    flex-direction: row;
+    width: 85vw;
+    max-width: 1000px;
+    height: 500px;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
     z-index: 1;
-}
-
-.loginInfo{
+  }
+  
+  .loginCardImage {
     width: 50%;
-}
-
-.loginButtons{
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+  }
+  
+  .loginCardImage img {
+    width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+  
+  .loginCardContent {
     width: 50%;
-    background: #a12c2c;
+    padding: 3em 2em;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-}
+  }
+  
+  .loginCardContent h1 {
+    margin-bottom: 10px;
+    font-size: 2.2em;
+    color: #2e7d32;
+  }
+  
+  .loginCardContent p {
+    margin-bottom: 30px;
+    color: #555;
+  }
+  
+  .loginButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .loginButtons button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 220px; /* Era 180px — agora um meio termo confortável */
+    justify-content: center;
+  }
+  
+  .loginButtons button svg {
+    font-size: 1.1em;
+  }
+  
+  .loginButtons .google {
+    background-color: #ffffff;
+    color: #444;
+    border: 1px solid #ccc;
+  }
+  
+  .loginButtons .google:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .loginButtons .microsoft,
+  .loginButtons .facebook {
+    background-color: #e0e0e0;
+    color: #888;
+    cursor: not-allowed;
+    border: 1px solid #ccc;
+  }
+  
