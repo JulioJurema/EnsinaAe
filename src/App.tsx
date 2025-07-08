@@ -7,6 +7,7 @@ import React from 'react';
 import Sobre from './Pages/Sobre';
 import Ajustes from './Pages/Ajustes';
 import LoginPage from './Pages/LoginPage';
+import AdicionarQuestoes from './Pages/AdicionarQuestoes';
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ const App: React.FC = () => {
           <Route path='/sobre' element={<Sobre />} />
           <Route path='/ajustes' element={<Ajustes />} />
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/add' element={<AdicionarQuestoes />} />
         </Routes>
       </div>
     </section>
