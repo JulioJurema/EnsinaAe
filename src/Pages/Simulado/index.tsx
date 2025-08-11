@@ -15,7 +15,18 @@ const Simulado: React.FC<simuladoProps> = (props) =>{
                     : <Header titulo='Modo Livre' descricao='No modo livre você pode estudar sem se preocupar com o rempo' cronometro={false}/>
                 }
             <div>
-                <QuestionCard image="" pergunta="asdaksdjhasdjkla" />
+            <QuestionCard
+                pergunta="O que é um transistor?"
+                imagem1="https://link-para-imagem1.jpg"
+                imagem2="https://link-para-imagem2.jpg"
+                alternativas={[
+                    "Um tipo de capacitor",
+                    "Um componente ativo que amplifica sinais",
+                    "Um resistor com polaridade",
+                    "Um tipo de oscilador"
+                ]}
+            />
+
             </div>
         </section>
     )

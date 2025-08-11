@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import './style.css';
 import Logo from "../../assets/Logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -13,32 +12,103 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="navbarContainer">
-      <img src={Logo} alt="Logo do site" />
-      <div className="navArea">
-        <div className="navButtons">
-          <NavLink to='/' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Dashboard</NavLink>
-          <div className="navDiv1">
-            <NavLink to='/simulado' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Simulado</NavLink>
-            <NavLink to='/livre' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Livre</NavLink>
+    <nav className="h-full w-[15em] flex flex-col shadow-[0px_7px_29px_-4px_rgba(0,0,0,0.25)] mr-8 p-[1em]">
+      <img src={Logo} alt="Logo do site" className="h-auto mt-[5vh] mb-[10vh]" />
+
+      <div className="flex flex-col justify-between h-[90%]">
+        <div className="flex flex-col mt-8">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `px-8 py-2 mb-1 rounded no-underline ${
+                isActive
+                  ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
+                  : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
+              }`
+            }
+          >
+            Dashboard
+          </NavLink>
+
+          <div className="flex flex-col my-2 py-5 border-y border-[#c0c0c0]">
+            <NavLink
+              to="/simulado"
+              className={({ isActive }) =>
+                `px-8 py-2 mb-1 rounded no-underline ${
+                  isActive
+                    ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
+                    : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
+                }`
+              }
+            >
+              Simulado
+            </NavLink>
+            <NavLink
+              to="/livre"
+              className={({ isActive }) =>
+                `px-8 py-2 mb-1 rounded no-underline ${
+                  isActive
+                    ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
+                    : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
+                }`
+              }
+            >
+              Livre
+            </NavLink>
           </div>
-          <div className="navDiv2">
-            <NavLink to='/ajustes' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Ajustes</NavLink>
-            <NavLink to='/sobre' className={({ isActive }) => isActive ? 'navItens navActive' : 'navItens'}>Sobre</NavLink>
+
+          <div className="flex flex-col">
+            <NavLink
+              to="/ajustes"
+              className={({ isActive }) =>
+                `px-8 py-2 mb-1 rounded no-underline ${
+                  isActive
+                    ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
+                    : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
+                }`
+              }
+            >
+              Ajustes
+            </NavLink>
+            <NavLink
+              to="/sobre"
+              className={({ isActive }) =>
+                `px-8 py-2 mb-1 rounded no-underline ${
+                  isActive
+                    ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
+                    : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
+                }`
+              }
+            >
+              Sobre
+            </NavLink>
           </div>
         </div>
 
-        <div className="logoutArea">
-          <button onClick={() => setShowPopup(!showPopup)} className="logoutBtn">
+        <div className="relative inline-block">
+          <button
+            onClick={() => setShowPopup(!showPopup)}
+            className="w-full text-left px-8 py-2 mb-1 rounded text-[var(--texto-preto-primario)] hover:bg-[var(--vermelho-select)] transition duration-300
+            p-[0.5em] ">
             Sair
           </button>
 
           {showPopup && (
-            <div className="logoutPopup">
-              <p>Deseja mesmo sair?</p>
-              <div className="popupButtons">
-                <button onClick={() => setShowPopup(false)}>Cancelar</button>
-                <button onClick={handleLogout}>Sair</button>
+            <div className="absolute bottom-full left-0 mb-2 bg-white p-4 border border-gray-300 rounded-lg shadow-lg z-20 min-w-[160px]">
+              <p className="mb-2 text-sm text-gray-800">Deseja mesmo sair?</p>
+              <div className="flex justify-between gap-2">
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="px-3 py-1 rounded bg-gray-300 text-black font-medium"
+                >
+                  Cancelar
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="px-3 py-1 rounded bg-[var(--vermelho-select)] text-white font-medium hover:bg-[var(--vermelho-secundario)]"
+                >
+                  Sair
+                </button>
               </div>
             </div>
           )}
