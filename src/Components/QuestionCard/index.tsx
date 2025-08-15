@@ -1,37 +1,42 @@
-import "./style.css";
+import { useState } from "react";
 
-interface questionProperties {
-  pergunta: string | null;
-  imagem1?: string | null;
-  imagem2?: string | null;
+interface QuestionCardProps {
+  enunciado: string;
+  textoQuestao: string;
+  perguntaFinal: string;
   alternativas: string[];
-  correta?: number;
+  correta: string;
 }
 
-const QuestionCard: React.FC<questionProperties> = (props) => {
+export default function QuestionCard({
+  enunciado,
+  textoQuestao,
+  perguntaFinal,
+  alternativas,
+  correta
+}: QuestionCardProps) {
+  const [respostaSelecionada, setRespostaSelecionada] = useState<string | null>(null);
+
   return (
-    <section className="questionContainer">
-      <div className="questionContent">
-        {props.imagem1 && (
-          <img src={props.imagem1} alt="imagem 1" className="questionImage" />
-        )}
+    <div className="flex flex-col text-center question-card p-[3em] rounded-[10px] mb-[2em] bg-[#ddd]">
+      {enunciado ? <p className="font-bold mb-[2em]">{enunciado}</p> : null}
+      {textoQuestao ? <pre className="mb-[2em]">{textoQuestao}</pre> : null}
+      {perguntaFinal ? <p className="font-bold mb-[2em]">{perguntaFinal}</p> : null}
 
-        <h3 className="questionText">{props.pergunta}</h3>
-
-        {props.imagem2 && (
-          <img src={props.imagem2} alt="imagem 2" className="questionImage" />
-        )}
-
-        <div className="questionOptions">
-          {props.alternativas.map((alt, index) => (
-            <button key={index} className="questionOption">
-              {alt}
-            </button>
-          ))}
-        </div>
+      <div className="flex flex-col items-center w-full">
+        {alternativas.map((alt, index) => (
+          <label key={index} className="flex items-center text-start border-[1px] rounded-[5px] mb-[0.5em] p-[0.5em] w-[40em] hover:bg-[#eee] cursor-pointer">
+            <input className=""
+              type="radio"
+              name={`questao-${enunciado}`}
+              value={alt}
+              checked={respostaSelecionada === alt}
+              onChange={() => setRespostaSelecionada(alt)}
+            />
+            <span>{alt}</span>
+          </label>
+        ))}
       </div>
-    </section>
+    </div>
   );
-};
-
-export default QuestionCard;
+}
