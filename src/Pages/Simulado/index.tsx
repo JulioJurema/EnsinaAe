@@ -37,7 +37,7 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
         ...(doc.data() as Omit<Question, "id">),
       }));
 
-      const embaralhadas = lista.sort(() => Math.random() - 0.5).slice(0, 5);
+      const embaralhadas = lista.sort(() => Math.random() - 0.10).slice(0, 10);
       console.log("Questões selecionadas:", embaralhadas);
       setQuestoes(embaralhadas);
     } catch (error) {
@@ -87,6 +87,7 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
                   perguntaFinal={questao.perguntaFinal}
                   alternativas={questao.alternativas}
                   correta={questao.correta}
+                  categoria={questao.categoria}
                 />
               ))}
             </div>
