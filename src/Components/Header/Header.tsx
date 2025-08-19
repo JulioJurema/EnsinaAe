@@ -4,6 +4,7 @@ interface HeaderProps{
     titulo: string;
     descricao: string | null;
     cronometro: boolean;
+    tempo: string;
 }
 
 const Header: React.FC<HeaderProps> = (props) =>{
@@ -16,7 +17,7 @@ const Header: React.FC<HeaderProps> = (props) =>{
             {
                 props.cronometro && <div className='clockArea'>
                     <p>tempo decorrido</p>
-                    <h2>00:00:00</h2>
+                    <h2>{props.tempo}</h2>
                 </div>
             }
         </header>

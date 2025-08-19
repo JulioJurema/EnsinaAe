@@ -40,7 +40,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   return (
     <div className="flex flex-col text-center question-card pt-[2em] p-[4em] rounded-[10px] mb-[2em] mt-[0] m-[5em] shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
-
       <div className="mb-[1.5em] text-start">
         <p className="font-[800] text-[var(--verde-secundario)] text-[1.2em]">Questão {numero ?? "x"}</p>
         <p className="font-[200] text-[var(--texto-preto-primario)]">{categoriaTexto}</p>
