@@ -47,16 +47,15 @@ const QuestionCard: React.FC<QuestionCardProps> = (props) => {
 
       <div className="flex flex-col items-center w-full">
         {props.alternativas.map((alt, index) => {
-          let classes =
-            "flex items-center text-start border rounded-[5px] mb-[0.5em] pt-[0.5em] pb-[0.5em] pl-[1em] pr-[1em] w-[40em] cursor-pointer ";
+          let classes = "flex items-center text-start border rounded-[5px] mb-[0.5em] pt-[0.5em] pb-[0.5em] pl-[1em] pr-[1em] w-[40em] cursor-pointer ";
 
           if (props.mostrarCorreta) {
             if (alt === props.correta) {
               // sempre verde
-              classes += "border-[#2D743D] text-[#2D743D]";
+              classes += "border-[var(--verde-primario)] text-[var(--verde-secundario)] bg-[var(--verde-select)]";
             } else if (props.respostaSelecionada === alt && alt !== props.correta) {
               // selecionada errada → vermelho
-              classes += "border-[#e27b7b] text-[#e27b7b]";
+              classes += "border-[var(--vermelho-primario)] text-[var(--vermelho-secundario)] bg-[var(--vermelho-select)]";
             } else {
               classes += "border hover:bg-[#eee]";
             }

@@ -27,6 +27,7 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
   const [finalizado, setFinalizado] = useState(false);
   const [tempo, setTempo] = useState(0);
   const [mostrarCorretas, setMostrarCorretas] = useState(false);
+  const [userID, setUserID] = useState();
 
   //Zerar informações para iniciar
   useEffect(() => {
@@ -53,6 +54,17 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
     const s = (segundos % 60).toString().padStart(2, "0");
     return `${m}:${s}`;
   }
+  //buscar uid no localstorage
+  const logLocalStorage = () => {
+    const userData = localStorage.getItem("user"); // supondo que você salvou como "user"
+    if (userData) {
+      const user = JSON.parse(userData);
+      setUserID(user.uid);
+      console.log("UID:", userID);
+    } else {
+      console.log("Nenhum usuário encontrado no localStorage");
+    }
+  };
 
   //buscar e escolher questões no banco
   async function buscarQuestoes() {
@@ -95,13 +107,13 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
     setMostrarCorretas(false);
   }
 
-  //finalizar simulado
+  //finalizar simulado e calcular acertos por disciplina
   function finalizar() {
     setRunning(false);
     setFinalizado(true);
     setMostrarCorretas(true);
+    logLocalStorage();
 
-    //calcular acertos por disciplina
     const acertosPorDisciplina: Record<string, number> = {};
     const totalPorDisciplina: Record<string, number> = {};
 
