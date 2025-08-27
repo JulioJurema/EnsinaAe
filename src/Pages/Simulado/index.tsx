@@ -151,8 +151,8 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
   }
 
   return (
-    <section className="flex simuladoContainer min-h-screen justify-center">
-      <div className="max-w-[1200px] h-[100vh]">
+    <section className="flex flex-1 simuladoContainer h-[100%] justify-center">
+      <div className="flex flex-col max-w-[1200px] max-h-[100%] justify-between">
         {!started ? (
           <div className="text-center h-full content-center">
             <p className="mb-[1em]">
@@ -182,7 +182,7 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
               />
             )}
 
-            <div className="ml-[2em] mr-[2em] overflow-auto scrollbar-none h-[auto] max-h-[80%]">
+            <div className="ml-[2em] mr-[2em] mb-[0.5em] overflow-auto scrollbar-none ">
               {questoes.map((questao, i) => (
                 <QuestionCard
                   key={questao.id}
@@ -200,7 +200,7 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
               ))}
             </div>
 
-            <div className="max-w-[1200px] w-full bg-[#333] shadow-md p-[2em] flex justify-center gap-[1em]">
+            <div className="max-w-[1200px] w-full bg-[#333] p-[1em] shadow-md flex justify-center ">
               {!finalizado ? (
                 <button
                   className="px-[2em] py-[1em] bg-red-500 text-white rounded"

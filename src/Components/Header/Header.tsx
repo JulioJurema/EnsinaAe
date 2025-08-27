@@ -9,7 +9,7 @@ interface HeaderProps{
 
 const Header: React.FC<HeaderProps> = (props) =>{
     return (
-        <header className='headerContainer'>
+        <header className='headerContainer mt-[2em] mb-[2em]'>
             <div className='titleArea'>
                 <h1>{props.titulo}</h1>
                 <span>{props.descricao}</span>

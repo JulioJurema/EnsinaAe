@@ -22,7 +22,7 @@ const App: React.FC = () => {
           <Navbar />
         </div>
       )}
-      <div className="contentArea">
+      <div className="contentArea max-h-[100vh]">
         <Routes>
           <Route path='/' element={<Dashboard />} />
           <Route path='/simulado' element={<Simulado simulado={true} />} />

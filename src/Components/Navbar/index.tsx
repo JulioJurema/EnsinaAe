@@ -13,14 +13,14 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="h-full w-[15em] flex flex-col shadow-[0px_7px_29px_-4px_rgba(0,0,0,0.25)] mr-8 p-[1em]">
-      <img src={Logo} alt="Logo do site" className="h-auto mt-[5vh] mb-[10vh]" />
+      <img src={Logo} alt="Logo do site" className="h-auto mt-[5vh] mb-[10vh] mx-[0.5em]" />
 
       <div className="flex flex-col justify-between h-[90%]">
-        <div className="flex flex-col mt-8">
+        <div className="flex flex-col ">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `px-8 py-2 mb-1 rounded no-underline ${
+              `px-8 py-2 mb-1 rounded no-underline rounded-[5px] transition duration-200 ${
                 isActive
                   ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
                   : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
@@ -30,11 +30,11 @@ const Navbar: React.FC = () => {
             Dashboard
           </NavLink>
 
-          <div className="flex flex-col my-2 py-5 border-y border-[#c0c0c0]">
+          <div className="flex flex-col my-2 py-5 border-y border-[#c0c0c0] mt-[0.5em] mb-[0.5em] pt-[0.5em]">
             <NavLink
               to="/simulado"
               className={({ isActive }) =>
-                `px-8 py-2 mb-1 rounded no-underline ${
+                `px-8 py-2 mb-1 rounded no-underline rounded-[5px] mb-[0.5em] transition duration-200 ${
                   isActive
                     ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
                     : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
             <NavLink
               to="/livre"
               className={({ isActive }) =>
-                `px-8 py-2 mb-1 rounded no-underline ${
+                `px-8 py-2 mb-1 rounded no-underline rounded-[5px] mb-[0.5em] transition duration-200 ${
                   isActive
                     ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
                     : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
             <NavLink
               to="/ajustes"
               className={({ isActive }) =>
-                `px-8 py-2 mb-1 rounded no-underline ${
+                `px-8 py-2 mb-1 rounded no-underline rounded-[5px] mb-[0.5em] transition duration-200 ${
                   isActive
                     ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
                     : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
             <NavLink
               to="/sobre"
               className={({ isActive }) =>
-                `px-8 py-2 mb-1 rounded no-underline ${
+                `px-8 py-2 mb-1 rounded no-underline rounded-[5px] mb-[0.5em] transition duration-200 ${
                   isActive
                     ? 'bg-[var(--verde-primario)] text-[var(--texto-preto-primario)] font-semibold p-[0.5em]'
                     : 'text-[var(--texto-preto-primario)] hover:bg-[var(--verde-select)] p-[0.5em]'
@@ -85,11 +85,10 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative inline-block">
+        <div className="relative inline-block border-t border-[#c0c0c0] pt-[1em]">
           <button
             onClick={() => setShowPopup(!showPopup)}
-            className="w-full text-left px-8 py-2 mb-1 rounded text-[var(--texto-preto-primario)] hover:bg-[var(--vermelho-select)] transition duration-300
-            p-[0.5em] ">
+            className="w-full border-none font-[600] text-[1em] text-left px-8 py-2 mb-1 no-underline rounded-[5px] text-[var(--texto-preto-primario)] hover:bg-[var(--vermelho-select)] transition duration-200 p-[0.5em] ">
             Sair
           </button>
 
