@@ -2,7 +2,7 @@ import './style.css';
 import Logo from '../../assets/Logo.png';
 import Illustration from '../../assets/Ilustracao.png'; // substitua por sua imagem
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '../../../Firebase';
+import { auth, googleProvider } from '../../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { FaGoogle, FaFacebookF, FaMicrosoft } from 'react-icons/fa';

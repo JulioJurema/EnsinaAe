@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="h-full w-[15em] flex flex-col shadow-[0px_7px_29px_-4px_rgba(0,0,0,0.25)] mr-8 p-[1em]">
+    <nav className="h-full w-[15em] flex flex-col shadow-[0px_7px_29px_-4px_rgba(0,0,0,0.25)] p-[1em]">
       <img src={Logo} alt="Logo do site" className="h-auto mt-[5vh] mb-[10vh] mx-[0.5em]" />
 
       <div className="flex flex-col justify-between h-[90%]">
