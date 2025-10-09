@@ -13,7 +13,9 @@
   .loginPageContainer {
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(135deg, var(--verde-claro), var(--verde-escuro));
+    background-image: url(../../assets/Bg-login.jpg);
+    background-position: auto;
+    background-size: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,18 +30,18 @@
   }
   
   .loginLogo img {
-    height: 5em;
+    height: 3em;
   }
   
   
   .loginCard {
     display: flex;
-    width: 85vw;
+    width: 60vw;
     max-width: 1000px;
     height: 500px;
     background-color: white;
     border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 20px rgba(116, 116, 116, 0.25);
     overflow: hidden;
     z-index: 1;
   }
@@ -50,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2em;
+    padding: 2em 0;
   }
   
   .loginCardImage img {
@@ -60,7 +62,7 @@
   }
   
   .loginCardContent {
-    width: 50%;
+    width: 40%;
     padding: 3em 2em;
     display: flex;
     flex-direction: column;
