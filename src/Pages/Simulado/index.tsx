@@ -76,16 +76,16 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
         { nome: "historia", qtd: 5 },
         { nome: "geografia", qtd: 5 },
       ];
-
+      //vetor que receberá as questões
       let todasQuestoes: Question[] = [];
-
+      // faz a busca de questões no banco de dados
       for (const disc of disciplinas) {
         const colRef = collection(db, "Questions", disc.nome, "questoes");
         const snapshot = await getDocs(colRef);
         const lista: Question[] = snapshot.docs.map((doc) => ({
           id: doc.id,
-          categoria: disc.nome,
           ...(doc.data() as Omit<Question, "id">),
+          categoria: disc.nome,
         }));
         // embaralha e pega só a quantidade necessária
         const selecionadas = lista.sort(() => Math.random() - 0.5).slice(0, disc.qtd);
@@ -210,12 +210,6 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
                 </button>
               ) : (
                 <>
-                  <button
-                    className="px-[2em] py-[1em] bg-blue-500 text-white rounded"
-                    onClick={() => setMostrarCorretas(true)}
-                  >
-                    Conferir respostas
-                  </button>
                   <button
                     className="px-[2em] py-[1em] bg-green-500 text-white rounded"
                     onClick={novoSimulado}

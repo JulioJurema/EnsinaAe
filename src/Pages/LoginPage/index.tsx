@@ -2,7 +2,8 @@ import './style.css';
 import Logo from '../../assets/Logo.png';
 import Illustration from '../../assets/Ilustracao.png';
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '../../../firebase';
+import { auth, googleProvider, db} from '../../../firebase';
+import { doc, collection, getDoc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { FaGoogle, FaFacebookF, FaMicrosoft } from 'react-icons/fa';
@@ -27,11 +28,30 @@ const LoginPage: React.FC = () => {
         uid: user.uid,
       };
 
+      if (user.uid) {
+        const userRef = doc(collection(db, 'Users'), user.uid);
+        const userSnap = await getDoc(userRef);
+      
+        if (!userSnap.exists()) {
+          await setDoc(userRef, {
+            nome: user.displayName,
+            email: user.email,
+            uid: user.uid,
+            criadoEm: new Date()
+          });
+          console.log('Usuário adicionado ao Firestore.');
+        } else {
+          console.log('Usuário já existe no Firestore.');
+        }
+      }
+
       localStorage.setItem('user', JSON.stringify(userData));
       navigate('/');
     } catch (error) {
       console.error('Erro no login com Google:', error);
     }
+
+    
   };
 
   return (
