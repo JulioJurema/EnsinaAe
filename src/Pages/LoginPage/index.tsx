@@ -1,5 +1,9 @@
 import './style.css';
+<<<<<<< HEAD
 import Logo from '../../assets/Logo.png';
+=======
+import Logo from '../../assets/Logo.svg';
+>>>>>>> f01b9d33f32cefe424d63ddd1acdd36d37fae4a9
 import Illustration from '../../assets/Ilustracao.png';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider, db} from '../../../firebase';
@@ -57,7 +61,7 @@ const LoginPage: React.FC = () => {
   return (
     <section className="loginPageContainer">
       <header className="loginLogo">
-        <img src={Logo} alt="Logo" />
+        <img src={Logo} alt="Logo" className='' />
       </header>
 
       <div className="loginCard">

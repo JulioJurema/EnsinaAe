@@ -56,7 +56,7 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
   }
   //buscar uid no localstorage
   const logLocalStorage = () => {
-    const userData = localStorage.getItem("user"); // supondo que você salvou como "user"
+    const userData = localStorage.getItem("user");
     if (userData) {
       const user = JSON.parse(userData);
       setUserID(user.uid);

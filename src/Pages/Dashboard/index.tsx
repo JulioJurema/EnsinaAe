@@ -1,5 +1,7 @@
 import React from "react";
 import CardMedia from "../../Components/CardMedia";
+import CardBoasVindas from "../../Components/CardBoasVindas";
+import CardListagemDisc from "../../Components/CardListagemDisc";
 
 const Dashboard: React.FC = () => {
     const [relogio, setRelogio] = React.useState(new Date().toLocaleTimeString());
@@ -29,15 +31,25 @@ const Dashboard: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex flex-col Body w-[100%] h-[100%]">
-                    <div className="line1 w-[100%] h-[55%] bg-[#999]">
-                        
+                    <div className="flex line1 w-[100%] h-[55%] bg-[#999] px-[2em] pt-[2em] pb-[1.5em]">
+                        <CardBoasVindas />
+                        <CardListagemDisc />
                     </div>
+<<<<<<< HEAD
                     <div className="flex justify-between items-center content-between w-[100%] h-[35%]">
                         <CardMedia cat="portugues" media={5} max={14}/>
                         <CardMedia cat="matematica" media={1} max={14}/>
                         <CardMedia cat="ciencias" media={7} max={14}/>
                         <CardMedia cat="historia" media={3} max={14}/>
                         <CardMedia cat="geografia" media={2} max={14}/>
+=======
+                    <div className="flex justify-between items-center w-[100%] h-[35%] bg-[#ccc] p-[2em] pt-[0.5em]">
+                        <CardMedia cat="portugues" media={22.5} max={14}/>
+                        <CardMedia cat="matematica" media={22.5} max={14}/>
+                        <CardMedia cat="ciencias" media={22.5} max={14}/>
+                        <CardMedia cat="historia" media={22.5} max={14}/>
+                        <CardMedia cat="geografia" media={22.5} max={14}/>
+>>>>>>> f01b9d33f32cefe424d63ddd1acdd36d37fae4a9
                     </div>
                 </div>
             </div>

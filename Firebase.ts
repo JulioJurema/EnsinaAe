@@ -23,9 +23,3 @@ const storage = getStorage(app);
 const googleProvider = new GoogleAuthProvider();
 
 export { auth, googleProvider, db, storage };
-
-
-
-
-
-
