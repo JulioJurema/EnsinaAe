@@ -1,6 +1,6 @@
 import './style.css';
-import Logo from '../../assets/Logo.png';
-import Illustration from '../../assets/Ilustracao.png'; // substitua por sua imagem
+import Logo from '../../assets/Logo.svg';
+import Illustration from '../../assets/Ilustracao.png';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../../firebase';
 import { useNavigate } from 'react-router-dom';
@@ -37,7 +37,7 @@ const LoginPage: React.FC = () => {
   return (
     <section className="loginPageContainer">
       <header className="loginLogo">
-        <img src={Logo} alt="Logo" />
+        <img src={Logo} alt="Logo" className='' />
       </header>
 
       <div className="loginCard">

@@ -56,7 +56,7 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
   }
   //buscar uid no localstorage
   const logLocalStorage = () => {
-    const userData = localStorage.getItem("user"); // supondo que você salvou como "user"
+    const userData = localStorage.getItem("user");
     if (userData) {
       const user = JSON.parse(userData);
       setUserID(user.uid);
@@ -84,8 +84,8 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
         const snapshot = await getDocs(colRef);
         const lista: Question[] = snapshot.docs.map((doc) => ({
           id: doc.id,
-          categoria: disc.nome,
           ...(doc.data() as Omit<Question, "id">),
+          categoria: disc.nome,
         }));
         // embaralha e pega só a quantidade necessária
         const selecionadas = lista.sort(() => Math.random() - 0.5).slice(0, disc.qtd);
@@ -210,12 +210,6 @@ const Simulado: React.FC<SimuladoProps> = ({ simulado }) => {
                 </button>
               ) : (
                 <>
-                  <button
-                    className="px-[2em] py-[1em] bg-blue-500 text-white rounded"
-                    onClick={() => setMostrarCorretas(true)}
-                  >
-                    Conferir respostas
-                  </button>
                   <button
                     className="px-[2em] py-[1em] bg-green-500 text-white rounded"
                     onClick={novoSimulado}
