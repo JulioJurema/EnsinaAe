@@ -7,8 +7,6 @@ const Dashboard: React.FC = () => {
     const [relogio, setRelogio] = React.useState(new Date().toLocaleTimeString());
 
 
-
-
     React.useEffect(() => {
     const timer = setInterval(() => {
         setRelogio(new Date().toLocaleTimeString());
@@ -30,9 +28,16 @@ const Dashboard: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex flex-col Body w-[100%] h-[100%]">
-                    <div className="flex line1 w-[100%] h-[55%] bg-[#999] px-[2em] pt-[2em] pb-[1.5em]">
-                        <CardBoasVindas />
-                        <CardListagemDisc />
+                    <div className="flex line1 w-[100%] h-[55%] pb-[1.5em] mb-[1.5em] justify-between">
+                        <CardBoasVindas nome="João" diasSemFaltas={56} urso="feliz" />
+
+                        <CardListagemDisc
+                            pos1="Matemática"
+                            pos2="Ciências"
+                            pos3="Português"
+                            pos4="História"
+                            pos5="Geografia"
+                        />
                     </div>
                     <div className="flex justify-between items-center content-between w-[100%] h-[35%]">
                         <CardMedia cat="portugues" media={5} max={14}/>
