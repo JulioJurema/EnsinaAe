@@ -59,14 +59,14 @@ const Dashboard: React.FC = () => {
           console.log("Dados completos do usuário:", data);
   
           // ✅ Garante que existe o campo 'relatorio'
-          if (data.relatorio && typeof data.relatorio === "object") {
-            const relatorio = data.relatorio;
+          if (data.relatorio && typeof data.relatorio[0] === "object") {
+            const relatorio = data.relatorio[0];
   
             // Função auxiliar para calcular média
             const calcularMedia = (arr: number[]) => {
               if (!arr || arr.length === 0) return 0;
               const soma = arr.reduce((a, b) => a + b, 0);
-              return soma / arr.length;
+              return Math.round(soma / arr.length);
             };
   
             // Calcula médias de cada disciplina, se existirem
@@ -101,6 +101,20 @@ const Dashboard: React.FC = () => {
   
     fetchUserData();
   }, [userID]);
+
+  const gerarRanking = () => {
+    const disciplinas = [
+      { nome: "Matemática", media: mediaMatematica },
+      { nome: "Português", media: mediaPortugues },
+      { nome: "Ciências", media: mediaCiencias },
+      { nome: "História", media: mediaHistoria },
+      { nome: "Geografia", media: mediaGeografia },
+    ];
+  
+    return disciplinas.sort((a, b) => b.media - a.media);
+  };
+  
+  const ranking = gerarRanking(); 
   
 
   return (
@@ -126,11 +140,11 @@ const Dashboard: React.FC = () => {
             <CardBoasVindas nome={userName || "Usuário"} diasSemFaltas={56} urso="feliz" />
 
             <CardListagemDisc
-              pos1="Matemática"
-              pos2="Ciências"
-              pos3="Português"
-              pos4="História"
-              pos5="Geografia"
+              pos1={ranking[0]?.nome}
+              pos2={ranking[1]?.nome}
+              pos3={ranking[2]?.nome}
+              pos4={ranking[3]?.nome}
+              pos5={ranking[4]?.nome}
             />
           </div>
 
