@@ -1,14 +1,13 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 interface CardBoasVindasProps {
   nome: string;
   diasSemFaltas: number;
-  urso: "padrao" | "feliz" | "triste" | "deprimido"; // você pode ajustar os nomes conforme quiser
+  urso: "padrao" | "feliz" | "triste" | "deprimido";
 }
 
 const CardBoasVindas: React.FC<CardBoasVindasProps> = ({ nome, diasSemFaltas, urso }) => {
-  // Define o caminho da imagem com base na prop
   const ursoSrc = {
     padrao: "src/assets/Urso/UrsoNeutro.png",
     feliz: "src/assets/Urso/UrsoFeliz.png",
@@ -17,10 +16,9 @@ const CardBoasVindas: React.FC<CardBoasVindasProps> = ({ nome, diasSemFaltas, ur
   }[urso];
 
   return (
-    <section className="flex items-center justify-between bg-[white] rounded-[35px] shadow-[0_10px_25px_rgba(0,0,0,0.1)] p-[2em] px-[5em] w-[65%] h-[100%]">
+    <section className="relative flex items-center justify-between bg-[white] rounded-[35px] shadow-[0_10px_25px_rgba(0,0,0,0.1)] p-[2em] px-[5em] w-[65%] h-[100%] overflow-visible">
       
-      {/* Texto à esquerda */}
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center z-[1]">
         <h2 className="text-[3rem] font-[700] text-[black]">
           Olá, {nome}!
         </h2>
@@ -33,21 +31,20 @@ const CardBoasVindas: React.FC<CardBoasVindasProps> = ({ nome, diasSemFaltas, ur
         </p>
 
         <div className="flex gap-[1em] mt-[1em]">
-          <button className="border-none bg-[rgb(163,211,175)] w-[10em] h-[3em] text-[black] font-[600] rounded-[0.5em] hover:opacity-[0.9] transition-all">
-            Simulado
-          </button>
-          <button className="border-none bg-[rgb(163,211,175)] w-[10em] h-[3em] text-[black] font-[600] rounded-[0.5em] hover:opacity-[0.9] transition-all">
-            Livre
-          </button>
+            <Link to="/simulado" className=" no-underline border-none bg-[rgb(163,211,175)] w-[10em] h-[3em] text-[black] font-[600] rounded-[0.5em] hover:opacity-[0.9] transition-all flex items-center justify-center">
+                Simulado
+            </Link>
+            <Link to="/livre" className=" no-underline border-none bg-[rgb(163,211,175)] w-[10em] h-[3em] text-[black] font-[600] rounded-[0.5em] hover:opacity-[0.9] transition-all flex items-center justify-center">
+                Livre
+            </Link>
         </div>
       </div>
 
-      {/* Imagem do urso à direita */}
-      <div className="w-[40%] h-[100%] flex justify-center items-center">
+      <div className="absolute right-[10%] top-[-30%] flex justify-center items-start z-[0]">
         <img
           src={ursoSrc}
           alt={`Urso ${urso}`}
-          className="w-[200px] max-w-[100%] object-contain"
+          className="w-[23em] object-contain drop-shadow-[0_8px_15px_rgba(0,0,0,0.2)] select-none"
         />
       </div>
     </section>
